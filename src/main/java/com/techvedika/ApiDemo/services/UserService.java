@@ -7,6 +7,8 @@ import com.techvedika.ApiDemo.models.User;
 import com.techvedika.ApiDemo.repositories.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -54,11 +56,16 @@ public class UserService {
             optionalUser.get().setName(user.getName());
             optionalUser.get().setPassword(user.getPassword());
             optionalUser.get().setEmailId(user.getEmailId());
-            optionalUser.get().setUpdatedBy("admin@techvedika.com");
-            log.info("User updated successfully");
+            optionalUser.get().setCity(user.getCity());
+            optionalUser.get().setMobileNo(user.getMobileNo());
+                      log.info("User updated successfully");
             return userRepository.save(optionalUser.get());
         } else {
             throw new UserNotFoundException(String.format("User not found with the given id %s", userId));
         }
+    }
+
+    public Page<User> getAll(Pageable pageable) {
+        return userRepository.findAll(pageable);
     }
 }

@@ -22,9 +22,10 @@ public class User {
     @Column(name = "PASSWORD")
     private String password;
 
-    @Column(name = "CRTD_BY")
-    private String createdBy;
+    @Column(name = "MOBL_NO")
+    private Long mobileNo;
 
-    @Column(name = "UPDTD_BY")
-    private String updatedBy;
+    @Column(name = "CITY")
+    private String city;
+
 }

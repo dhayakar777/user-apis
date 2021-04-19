@@ -3,10 +3,8 @@ package com.techvedika.ApiDemo.dtos;
 import lombok.Data;
 
 
-import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 @Data
 public class UserDto {
@@ -22,7 +20,7 @@ public class UserDto {
     @NotEmpty(message = "password is required")
     private String password;
 
-    private String createdBy;
+    private Long mobileNo;
 
-    private String updatedBy;
+    private String city;
 }
